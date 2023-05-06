@@ -22,7 +22,7 @@ const NavBar = ({}: Props) => {
         
         <CustomLink className='mx-4' href='/about' title='About'></CustomLink>
         <CustomLink className='mx-4' href='/projects' title='Projects'></CustomLink>
-        <CustomLink className='ml-4' href='/articles' title='Article<'></CustomLink>
+        <CustomLink className='ml-4' href='/articles' title='Article'></CustomLink>
 
       </nav>
       <Logo/>
