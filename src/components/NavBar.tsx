@@ -1,11 +1,14 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 import Logo from './Logo'
+import linkedin from '../assets/linkedin.svg'
 import { useRouter } from 'next/router'
+import { SocialIcon } from 'react-social-icons'
 type Props = {}
 const CustomLink = ({ href, title, className ='' }: { href: string,title:string, className: string }) => {   
   const router = useRouter()
-  
+   
   
   return (
     <Link href={href} className={`${className} relative group`}>{title}
@@ -27,11 +30,14 @@ const NavBar = ({}: Props) => {
       </nav>
       <Logo/>
       
-      <nav>
-        <Link href='/' target={'_blank'}>T</Link>
-        <Link href='/' target={'_blank'}>T</Link>
-        <Link href='/' target={'_blank'}>T</Link>
-        <Link href='/' target={'_blank'}>T</Link>
+      <nav className='flex flex-row gap-4'>
+        
+        
+        
+      <SocialIcon style={{ height: 30, width: 30 }} className='hover:scale-125 transition focus:scale-75' network='linkedin' target='_blank' url="https://www.linkedin.com/company/spark-mesh" />
+      
+      <SocialIcon style={{ height: 30, width: 30 }} className='hover:scale-125 transition focus:scale-75' network='github' target='_blank' url="https://github.com/SparkMesh" />
+      <SocialIcon style={{ height: 30, width: 30 }} className='hover:scale-125 transition focus:scale-75' network='discord' target='_blank' url="https://discord.gg/UEd3NdFGdT" />
       </nav>
     </header>
   )
