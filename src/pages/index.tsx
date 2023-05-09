@@ -9,7 +9,7 @@ export default function Home() {
   
  
   return (
-    <main className='content overflow-hidden scrollbar-hide no-scrollbar'>
+    <main >
       <HomeUI />
       
     </main>

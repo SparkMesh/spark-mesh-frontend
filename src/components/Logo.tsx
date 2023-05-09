@@ -1,17 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { reverse } from 'dns'
 type Props = {}
 const MotionLink = motion(Link)
 const Logo = (props: Props) => {
   return (
     <motion.div 
-    initial={{ scale: 0 }}
-    animate={{ scale: 1,rotate: 360,transition: { duration: 1 } }}
-   
-    style={{boxShadow: '0px 0px 20px 0px rgba(0,0,0,0.75)',
-
-}}
+    
+    animate={{ 
+      boxShadow: ['5px 0px 20px 0px rgba(0,0,0,0.75)','0px 5px 20px 0px rgba(253,29,29,1)','-5px 0px 20px 0px rgba(131,58,180,1)','0px -5px 20px 0px rgba(252,176,69,1)','5px 0px 20px 0px rgba(0,0,0,0.75)'],
+     }}
+      transition={{ repeat:Infinity ,
+      duration: 2,
+      
+  
+     }}
+  
     className='relative border-2 flex justify-center items-center border-white rounded-full p-8'>
         <MotionLink 
         
