@@ -12,7 +12,7 @@ const HomeUI = (props: Props) => {
   const text_h2 = "Building smarter software for a better tomorrow.";
   const text_h3 = 'Our team of talented developers, designers, and technology experts work tirelessly to develop custom software solutions that meet the unique needs and goals of our clients. We leverage the latest technologies and industry best practices to build software that drives efficiency, productivity, and growth.'
   return (
-    <div className="h-screen pt-10 flex flex-col gap-2 justify-center items-center">
+    <div className="h-screen  pt-10 flex flex-col gap-2 justify-center items-center">
       <div className=" w-screen gap-2 flex flex-row justify-center items-center px-5 md:px-10 xl:px-20">
         <motion.div
           initial={{ x: '-100%' }}
@@ -105,6 +105,7 @@ const HomeUI = (props: Props) => {
         <MotionLink
         href="/portfolio.pdf"
         target={"_blank"}
+        download={true}
           initial={{ x: '-100%' }}
           animate={{ x: 0 }}
           
