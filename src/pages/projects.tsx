@@ -1,10 +1,13 @@
+import TransitionEffect from '@/components/TransitionEffect'
 import React from 'react'
 
 type Props = {}
 
 const Projects = (props: Props) => {
   return (
-    <div>Projects</div>
+    <div>
+      <TransitionEffect/>
+      Projects</div>
   )
 }
 

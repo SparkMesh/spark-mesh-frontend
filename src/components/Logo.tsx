@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { reverse } from 'dns'
+
 type Props = {}
 const MotionLink = motion(Link)
 const Logo = (props: Props) => {
@@ -13,7 +13,7 @@ const Logo = (props: Props) => {
      }}
       transition={{ repeat:Infinity ,
       duration: 2,
-      
+      ease: "easeInOut",
   
      }}
   
