@@ -45,9 +45,7 @@ const CustomLink = ({
 const NavBar = ({ }: Props) => {
   const controls = useAnimationControls();
   
-  React.useEffect(() => {
-    console.log(controls, "2");
-  }, []);
+  
   return (
     <header className="fixed z-40 top-0 w-full px-[10vw] py-[2vh] font-medium flex items-center justify-between">
       <nav>
