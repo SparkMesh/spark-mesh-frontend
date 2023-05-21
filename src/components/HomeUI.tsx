@@ -34,10 +34,12 @@ const HomeUI = (props: Props) => {
                 return (
                   <motion.span
                     key={char + "-" + index}
-                    
+                    initial={{  y: 50,clipPath: "inset(100% 0% 0% 0% round 10px)" }}
                     animate={{
+                      
+                      
                       backgroundClip: "text",
-
+                      y: 0,clipPath: "inset(0% 0% 0% 0% round 10px)",
                       color: [
                         " rgba(253,29,29,1)",
                         " rgba(252,176,69,1)",
@@ -49,7 +51,9 @@ const HomeUI = (props: Props) => {
                       repeatType: "reverse",
                       duration: 2,
                       ease: "easeInOut",
-                      delay: index * 0.2
+                      delay: index * 0.2,
+                      clipPath: {repeat: 0,duration: 0.5,ease: "easeInOut",},
+                      y:{repeat: 0,duration: 0.5,ease: "easeInOut",}
                     }}
 
                     //className="text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 "
@@ -90,8 +94,9 @@ const HomeUI = (props: Props) => {
               return (
                 <motion.span
                   key={char + "-" + index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  
+                  initial={{ opacity: 0,clipPath: "inset(100% 0% 0% 0%)" }}
+                  animate={{ opacity: 1,clipPath: "inset(0% 0% 0% 0%)", }}
                   transition={{ delay: index * 0.05 }}
                 >
                   {char + " "}
