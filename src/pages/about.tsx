@@ -1,12 +1,45 @@
 import TransitionEffect from "@/components/TransitionEffect";
 import React from "react";
+import LitIcon from "@/components/LitIcon";
 import Head from "next/head";
-import { motion, useScroll } from "framer-motion";
+import { useRef } from "react";
+import { MotionValue, motion,useInView,useMotionValue, useScroll, useSpring } from "framer-motion";
+
 type Props = {
   name: string;
   x: string;
   y: string;
+  
 };
+
+const Details = () => {
+  const ref = useRef(null);
+  return (
+    <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-60% mx-auto flex flex-col items-center justify-center">
+<LitIcon reference={ref} />
+    </li>
+  )
+};
+
+const AnimatedNumbers = ({value}) => {
+  const ref = useRef(null)
+ const motionValue = useMotionValue(0)
+ const springValue = useSpring(motionValue, {duration: 3000})
+ const isInView = useInView(ref,{once:true})
+  React.useEffect(() => {
+    if (isInView) {
+      motionValue.set(value)
+    }
+  }, [isInView,value,motionValue])
+  React.useEffect(() => {
+    springValue.on("change",(latest)=>{
+      if(ref.current && latest.toFixed(0) <= value){
+        ref.current.textContent = latest.toFixed(0)
+      }
+    })
+  }, [springValue,value]);
+  return <span ref={ref}></span>
+}
 const Skill = (props: Props) => {
   return (
     <motion.div
@@ -116,9 +149,9 @@ const About = (props: Props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex sm:flex-row flex-col">
+      <main className="flex sm:flex-row flex-col px-5 md:px-10 xl:px-20 ">
         <TransitionEffect />
-        <div className="sm:h-screen h-[50%] ml-[3vw] overflow-hidden w-screen sm:w-[50%] flex flex-col justify-center items-center">
+        <div className="h-screen ml-[3vw] overflow sm:e-screen  w-[50%] flex flex-col justify-center items-center">
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
             animate={{ y: 0, clipPath: "inset(0% 0% 0% 0% round 10px)" }}
@@ -127,6 +160,7 @@ const About = (props: Props) => {
           >
             Tech Stack
           </motion.h2>
+           
           <motion.div
             initial={{ width: 0, height: 0 }}
             whileInView={{ width: "47vw", height: "47vh" }}
@@ -164,13 +198,28 @@ const About = (props: Props) => {
             </motion.div>
           </motion.div>
           {Object.entries(axis).map(([key, value]) => (
-            <Skill x={value.x} y={value.y} name={key} />
+            <Skill key={key} x={value.x} y={value.y} name={key} />
           ))}
+          <div className="bottom-0 p-5 absolute flex flex-row gap-10">
+            <div className="flex flex-col justify-center items-center">
+              <span className="text-5xl font-bold"><AnimatedNumbers value={4}  />+</span>
+            <h2 className="font-extralight">SATISFIED CLIENTS</h2>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <span className="text-5xl font-bold"><AnimatedNumbers value={8}  />+</span>
+            <h2 className="font-extralight">PROJECTS COMPLETED</h2>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <span className="text-5xl font-bold"><AnimatedNumbers value={2}  />+</span>
+            <h2 className="font-extralight">YEARS OF EXPERIENCE</h2>
+            </div>
+            </div>
         </div>
+        
         <div
           ref={ref}
           style={{}}
-          className="h-screen pt-[25vh] flex flex-col justify-start items-center ml-[2vw] w-[50%] overflow-x-hidden overflow-scroll text-black"
+          className="h-screen pt-[25vh] flex flex-col justify-start items-center ml-[2vw] w-[50%] overflow-x-hidden overflow-scroll"
         >
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
@@ -182,13 +231,12 @@ const About = (props: Props) => {
           </motion.h2>
          <div className="px-[2vw]">
 
-         Welcome to Spark Mesh, a dynamic software company that delivers
-          cutting-edge technology solutions to businesses worldwide. At Spark
-          Mesh, we strive to ignite innovation and enable businesses to thrive
+         Welcome to <text className="font-extrabold font-mono">SparkMesh</text>, a dynamic software company that delivers
+          cutting-edge technology solutions to businesses worldwide. At SparkMesh, we strive to ignite innovation and enable businesses to thrive
           in the digital age.
           <br />
           <br />
-          Our team of talented developers, designers, and technology experts
+          Our team of <text className="font-extrabold font-mono">talented developers , designers, and technology experts</text>
           work tirelessly to develop custom software solutions that meet the
           unique needs and goals of our clients. We leverage the latest
           technologies and industry best practices to build software that drives
