@@ -21,8 +21,8 @@ const Details = () => {
   )
 };
 
-const AnimatedNumbers = ({value}) => {
-  const ref = useRef(null)
+const AnimatedNumbers = ({value}:{value:number}) => {
+  const ref = useRef<HTMLInputElement>(null)
  const motionValue = useMotionValue(0)
  const springValue = useSpring(motionValue, {duration: 3000})
  const isInView = useInView(ref,{once:true})
@@ -242,7 +242,7 @@ const About = (props: Props) => {
           technologies and industry best practices to build software that drives
           efficiency, productivity, and growth.
          </div>
-          <LitIcon />
+          <LitIcon reference={ref} />
         </div>
       </main>
     </>
