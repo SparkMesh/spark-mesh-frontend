@@ -242,7 +242,7 @@ const About = (props: Props) => {
           technologies and industry best practices to build software that drives
           efficiency, productivity, and growth.
          </div>
-          
+          <LitIcon />
         </div>
       </main>
     </>
