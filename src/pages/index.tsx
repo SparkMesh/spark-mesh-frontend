@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { useEffect } from 'react'
 import HomeUI from '@/components/HomeUI'
 import Head from 'next/head'
+import TransitionEffect from '@/components/TransitionEffect'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,6 +19,7 @@ export default function Home() {
         
         
       </Head>
+      <TransitionEffect/>
       <HomeUI />
       
     </main>

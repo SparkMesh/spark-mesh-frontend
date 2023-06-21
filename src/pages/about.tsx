@@ -3,43 +3,50 @@ import React from "react";
 import LitIcon from "@/components/LitIcon";
 import Head from "next/head";
 import { useRef } from "react";
-import { MotionValue, motion,useInView,useMotionValue, useScroll, useSpring } from "framer-motion";
+import {
+  MotionValue,
+  motion,
+  useInView,
+  useMotionValue,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 
 type Props = {
   name: string;
   x: string;
   y: string;
-  
 };
 
 const Details = () => {
   const ref = useRef(null);
   return (
-    <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-60% mx-auto flex flex-col items-center justify-center">
-<LitIcon reference={ref} />
-    </li>
-  )
+    <li
+      ref={ref}
+      className="my-8 first:mt-0 last:mb-0 w-60% mx-auto flex flex-col items-center justify-center"
+    ></li>
+  );
 };
 
-const AnimatedNumbers = ({value}:{value:number}) => {
-  const ref = useRef<HTMLInputElement>(null)
- const motionValue = useMotionValue(0)
- const springValue = useSpring(motionValue, {duration: 3000})
- const isInView = useInView(ref,{once:true})
+const AnimatedNumbers = ({ value }: { value: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 3000 });
+  const isInView = useInView(ref, { once: true });
   React.useEffect(() => {
     if (isInView) {
-      motionValue.set(value)
+      motionValue.set(value);
     }
-  }, [isInView,value,motionValue])
+  }, [isInView, value, motionValue]);
   React.useEffect(() => {
-    springValue.on("change",(latest)=>{
-      if(ref.current && latest.toFixed(0) <= value){
-        ref.current.textContent = latest.toFixed(0)
+    springValue.on("change", (latest) => {
+      if (ref.current && latest.toFixed(0) <= value) {
+        ref.current.textContent = latest.toFixed(0);
       }
-    })
-  }, [springValue,value]);
-  return <span ref={ref}></span>
-}
+    });
+  }, [springValue, value]);
+  return <span ref={ref}></span>;
+};
 const Skill = (props: Props) => {
   return (
     <motion.div
@@ -57,8 +64,8 @@ const Skill = (props: Props) => {
   );
 };
 const About = (props: Props) => {
-  const ref = React.useRef(null);
-  const a = true;
+  const ref = React.useRef<HTMLDivElement>(null);
+  
   const [axis, setAxis] = React.useState({
     nodejs: {
       x: "0vw",
@@ -102,27 +109,27 @@ const About = (props: Props) => {
   var object: any = {};
 
   React.useEffect(() => {
-    const y = 1
-    i = 0
-    j = 0
-      angle = angle.map((a) => a + y);
+    const y = 1;
+    i = 0;
+    j = 0;
+    angle = angle.map((a) => a + y);
 
-      for (const [key, value] of Object.entries(axis)) {
-        if (i == 4) {
-          j = 1;
-        }
-        var a = radius[j] * Math.sin((Math.PI * 2 * angle[i]) / 360);
-        var b = radius[j] * Math.cos((Math.PI * 2 * angle[i]) / 360);
-        i++;
-
-        object = { ...object, [key]: { x: `${a}vw`, y: `${b}vh` } };
-
-        setAxis(object);
+    for (const [key, value] of Object.entries(axis)) {
+      if (i == 4) {
+        j = 1;
       }
+      var a = radius[j] * Math.sin((Math.PI * 2 * angle[i]) / 360);
+      var b = radius[j] * Math.cos((Math.PI * 2 * angle[i]) / 360);
+      i++;
+
+      object = { ...object, [key]: { x: `${a}vh`, y: `${b}vh` } };
+
+      setAxis(object);
+    }
     scrollYProgress.on("change", (y) => {
       y = y * 4;
-      i = 0
-      j = 0
+      i = 0;
+      j = 0;
       angle = angle.map((a) => a + y);
 
       for (const [key, value] of Object.entries(axis)) {
@@ -133,7 +140,7 @@ const About = (props: Props) => {
         var b = radius[j] * Math.cos((Math.PI * 2 * angle[i]) / 360);
         i++;
 
-        object = { ...object, [key]: { x: `${a}vw`, y: `${b}vh` } };
+        object = { ...object, [key]: { x: `${a}vh`, y: `${b}vh` } };
 
         setAxis(object);
       }
@@ -160,34 +167,34 @@ const About = (props: Props) => {
           >
             Tech Stack
           </motion.h2>
-           
+
           <motion.div
             initial={{ width: 0, height: 0 }}
-            whileInView={{ width: "47vw", height: "47vh" }}
+            whileInView={{ width: "47vh", height: "47vh" }}
             transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
             className="flex items-center justify-center rounded-full border-2 border-black"
           >
             <motion.div
               initial={{ width: 0, height: 0 }}
-              whileInView={{ width: "37vw", height: "37vh" }}
+              whileInView={{ width: "37vh", height: "37vh" }}
               transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className="flex items-center justify-center rounded-full border-2 border-black"
             >
               <motion.div
                 initial={{ width: 0, height: 0 }}
-                whileInView={{ width: "27vw", height: "27vh" }}
+                whileInView={{ width: "27vh", height: "27vh" }}
                 transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                 className="flex items-center justify-center rounded-full border-2 border-black"
               >
                 <motion.div
                   initial={{ width: 0, height: 0 }}
-                  whileInView={{ width: "17vw", height: "17vh" }}
+                  whileInView={{ width: "17vh", height: "17vh" }}
                   transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                   className="flex items-center justify-center rounded-full border-2 border-black"
                 >
                   <motion.div
                     initial={{ width: 0, height: 0 }}
-                    whileInView={{ width: "10vw", height: "10vh" }}
+                    whileInView={{ width: "10vh", height: "10vh" }}
                     transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                     className="flex z-0 bg-black overflow-hidden text-white items-center justify-center rounded-full border-2 border-black"
                   >
@@ -202,24 +209,29 @@ const About = (props: Props) => {
           ))}
           <div className="bottom-0 p-5 absolute flex flex-row gap-10">
             <div className="flex flex-col justify-center items-center">
-              <span className="text-5xl font-bold"><AnimatedNumbers value={4}  />+</span>
-            <h2 className="font-extralight">SATISFIED CLIENTS</h2>
+              <span className="text-5xl font-bold">
+                <AnimatedNumbers value={4} />+
+              </span>
+              <h2 className="font-extralight">SATISFIED CLIENTS</h2>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <span className="text-5xl font-bold"><AnimatedNumbers value={8}  />+</span>
-            <h2 className="font-extralight">PROJECTS COMPLETED</h2>
+              <span className="text-5xl font-bold">
+                <AnimatedNumbers value={8} />+
+              </span>
+              <h2 className="font-extralight">PROJECTS COMPLETED</h2>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <span className="text-5xl font-bold"><AnimatedNumbers value={2}  />+</span>
-            <h2 className="font-extralight">YEARS OF EXPERIENCE</h2>
+              <span className="text-5xl font-bold">
+                <AnimatedNumbers value={2} />+
+              </span>
+              <h2 className="font-extralight">YEARS OF EXPERIENCE</h2>
             </div>
-            </div>
+          </div>
         </div>
-        
+
         <div
-          ref={ref}
           style={{}}
-          className="h-screen pt-[25vh] flex flex-col justify-start items-center ml-[2vw] w-[50%] overflow-x-hidden overflow-scroll"
+          className="h-screen pt-[25vh] flex flex-col justify-start items-center ml-[2vw] w-[50%] "
         >
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
@@ -229,20 +241,25 @@ const About = (props: Props) => {
           >
             Overview
           </motion.h2>
-         <div className="px-[2vw]">
 
-         Welcome to <text className="font-extrabold font-mono">SparkMesh</text>, a dynamic software company that delivers
-          cutting-edge technology solutions to businesses worldwide. At SparkMesh, we strive to ignite innovation and enable businesses to thrive
-          in the digital age.
-          <br />
-          <br />
-          Our team of <text className="font-extrabold font-mono">talented developers , designers, and technology experts</text>
-          work tirelessly to develop custom software solutions that meet the
-          unique needs and goals of our clients. We leverage the latest
-          technologies and industry best practices to build software that drives
-          efficiency, productivity, and growth.
+          <div ref={ref}  className="relative text-lg overflow-x-hidden px-[2vw] mr-6 mb-5">
+            Welcome to 
+            <text className="font-extrabold mx-2 font-mono">SparkMesh</text>, a
+            dynamic software company that delivers cutting-edge technology
+            solutions to businesses worldwide. At SparkMesh, we strive to ignite
+            innovation and enable businesses to thrive in the digital age.
+            <br />
+            <br />
+            {/* //<LitIcon reference={reference} /> */}
+            Our team of{" "}
+            <text className="font-extrabold mx-2 font-mono">
+              talented developers , designers, and technology experts
+            </text>
+            work tirelessly to develop custom software solutions that meet the
+            unique needs and goals of our clients. We leverage the latest
+            technologies and industry best practices to build software that
+            drives efficiency, productivity, and growth.
          </div>
-          <LitIcon reference={ref} />
         </div>
       </main>
     </>
