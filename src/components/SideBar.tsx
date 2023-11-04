@@ -97,13 +97,13 @@ window.addEventListener("resize", () => {
         initial={{ height: 0 }}
         animate={{ height: "50vh" }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="border-t-[0.3vh] border-gray-800 top-[50vh] sm:border-r-[0.3vw] absolute z-50  sm:block hidden sm:top-0 sm:left-[8%]  sm:border-black"
+        className="border-t-[0.3vh] border-gray-800 top-[50vh] sm:border-r-[0.3vw] absolute   sm:block hidden sm:top-0 sm:left-[8%]  sm:border-black"
       ></motion.div>
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: "50vh" }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="border-t-[0.3vh] top-[50vh] z-50 sm:border-r-[0.3vw] absolute  sm:block hidden sm:top-0 sm:right-[8%]  sm:border-black"
+        className="border-t-[0.3vh] top-[50vh]  sm:border-r-[0.3vw] absolute  sm:block hidden sm:top-0 sm:right-[8%]  sm:border-black"
       ></motion.div>
       <div 
        style={

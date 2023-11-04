@@ -10,7 +10,7 @@ interface ProjectCardProps {
   thumbnail: string;
   liveLink?: string;
 projectIndex?:number;
-
+index?:number;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,7 +19,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   thumbnail,
   liveLink,
-projectIndex
+projectIndex,
+index
  
 }) => {
   const containerVariants: Variants = {
@@ -67,7 +68,7 @@ projectIndex
   return (
     <motion.div
     
-      className={`bg-gray-50   p-6 cursor-pointer  ${projectIndex == -1 ? "" : 'hover:bg-gray-200 '}  rounded-lg shadow-md`}
+      className={`bg-gray-50   p-6 cursor-pointer  ${projectIndex == index ? "bg-gray-200 " : 'sm:hover:bg-gray-200  '}  rounded-lg shadow-md`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"

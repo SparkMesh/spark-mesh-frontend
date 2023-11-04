@@ -84,7 +84,9 @@ const Projects = (props: Props) => {
         {preview || previewResP ? (
           <motion.div
           variants={{
-            hidden: { x: "-100vw" },
+            hidden: { x: "-100vw",
+            
+          },
             visible: { x: "0vw" },
            
           }}
@@ -95,8 +97,9 @@ const Projects = (props: Props) => {
             // animate={{ x: "0vw" }}
             exit={{ x: "100vw",  }}
             transition={{ duration: 0.5,delay:0.3, ease: "easeInOut" }}
-            
-            className="fixed  p-1  top-[0vh] w-screen right-0  bg-gray-400 bg-opacity-40 "
+          
+           
+            className="fixed  p-1  top-[0vh] w-screen  right-0  bg-gray-400 bg-opacity-40 "
           >
             <motion.div
             initial={{ x: '-100vw' }}
@@ -146,6 +149,7 @@ return (
             <motion.div
            
               key={key}
+              
              
               // onHoverStart={() => {
               //   setPreview(true);
@@ -176,7 +180,7 @@ return (
 
             >
                 <ProjectCard
-                
+                index = {key}
                 key={key}
                   name={project.name}
                   shortDescription={project.shortDescription}

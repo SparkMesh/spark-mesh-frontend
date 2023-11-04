@@ -105,13 +105,14 @@ const About = (props: Props) => {
   });
 
   const { scrollYProgress } = useScroll({ container: ref });
-  var radius = [14.1, 20];
+  var radius = [10, 15];
   var angle = [52, 225, 142, 315, 90, 180, 20, 270];
   var i = 0,
     j = 0;
   var object: any = {};
 
   React.useEffect(() => {
+    window.innerWidth > 768 ? (radius = [15, 25]) : (radius = [10, 15]);
     const y = 1;
     i = 0;
     j = 0;
@@ -155,50 +156,52 @@ const About = (props: Props) => {
         <title>About</title>
         <meta
           name="description"
-          content="Welcome to Spark Mesh, a dynamic software company that delivers cutting-edge technology solutions to businesses worldwide. At Spark Mesh, we strive to ignite innovation and enable businesses to thrive in the digital age."
+          content=" A dynamic software company that delivers cutting-edge technology
+          solutions to businesses worldwide. At SparkMesh, we strive to ignite
+          innovation and enable businesses to thrive in the digital age."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-row px-[10vw] ">
+      <main className="flex sm:flex-row flex-col  px-[10vw] justify-center items-center ">
         <TransitionEffect />
         <Lottie className="absolute w-10 h-10  bottom-[49%] left-[49%]" animationData={Mouse} loop={true} />
-        <div className="h-screen ml-[3vw] overflow   w-[50%] flex flex-col justify-center items-center">
+        <div className="h-screen ml-[3vw] overflow  relative w-[50%] flex flex-col justify-center items-center">
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
             animate={{ y: 0, clipPath: "inset(0% 0% 0% 0% round 10px)" }}
             transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="text-4xl  tracking-widest absolute top-[15vh] font-thin"
+            className="text-4xl  tracking-widest absolute top-[13vh] font-thin"
           >
-            Tech Stack
+            TechStack
           </motion.h2>
 
           <motion.div
             initial={{ width: 0, height: 0 }}
-            whileInView={{ width: "47vh", height: "47vh" }}
+            whileInView={{ width: "270px", height: "270px" }}
             transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
             className="flex items-center justify-center rounded-full border-2 border-black"
           >
             <motion.div
               initial={{ width: 0, height: 0 }}
-              whileInView={{ width: "37vh", height: "37vh" }}
+              whileInView={{ width: "200px", height: "200px" }}
               transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className="flex items-center justify-center rounded-full border-2 border-black"
             >
               <motion.div
                 initial={{ width: 0, height: 0 }}
-                whileInView={{ width: "27vh", height: "27vh" }}
+                whileInView={{ width: "130px", height: "130px" }}
                 transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                 className="flex items-center justify-center rounded-full border-2 border-black"
               >
                 <motion.div
                   initial={{ width: 0, height: 0 }}
-                  whileInView={{ width: "17vh", height: "17vh" }}
+                  whileInView={{ width: "70px", height: "70px" }}
                   transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                   className="flex items-center justify-center rounded-full border-2 border-black"
                 >
                   <motion.div
                     initial={{ width: 0, height: 0 }}
-                    whileInView={{ width: "10vh", height: "10vh" }}
+                    whileInView={{ width: "50px", height: "50px" }}
                     transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
                     className="flex z-0 bg-black overflow-hidden text-white items-center justify-center rounded-full border-2 border-black"
                   >
@@ -211,7 +214,7 @@ const About = (props: Props) => {
           {Object.entries(axis).map(([key, value]) => (
             <Skill key={key} x={value.x} y={value.y} name={key} />
           ))}
-          <div className="bottom-0 p-5 absolute flex flex-row gap-10">
+          <div className="sm:bottom-0 bottom-[15vh] p-5 absolute flex flex-row gap-10">
             <div className="flex flex-col justify-center items-center">
               <span className="text-5xl font-bold">
                 <AnimatedNumbers value={4} />+
@@ -235,13 +238,13 @@ const About = (props: Props) => {
 
         <div
           style={{}}
-          className="h-screen pt-[25vh] flex flex-col justify-start items-center ml-[2vw] w-[50%] "
+          className="h-screen pt-[25vh] relative flex flex-col justify-start items-center ml-[2vw] sm:w-[50%] "
         >
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
             animate={{ y: 0, clipPath: "inset(0% 0% 0% 0% round 10px)" }}
             transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="text-4xl tracking-widest absolute top-[15vh] font-thin"
+            className="text-4xl tracking-widest absolute top-[13vh] font-thin"
           >
             Overview
           </motion.h2>
@@ -266,7 +269,7 @@ const About = (props: Props) => {
             <Card
               icon={
                 <svg fill="#ffffff"
-                  enable-background="new 0 0 300 300"
+                  enableBackground="new 0 0 300 300"
                   viewBox="0 0 300 300"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -288,7 +291,7 @@ const About = (props: Props) => {
             <Card
               icon={
                 <svg fill="#ffffff"
-                  enable-background="new 0 0 300 300"
+                  enableBackground="new 0 0 300 300"
                   viewBox="0 0 300 300"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -308,7 +311,7 @@ const About = (props: Props) => {
               icon={
                 <svg
                   fill="#ffffff"
-                  enable-background="new 0 0 300 300"
+                  enableBackground="new 0 0 300 300"
                   viewBox="0 0 512 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
