@@ -1,5 +1,5 @@
 import TransitionEffect from "@/components/TransitionEffect";
-import React from "react";
+import React, { useEffect } from "react";
 import LitIcon from "@/components/LitIcon";
 import Head from "next/head";
 import { useRef } from "react";
@@ -32,6 +32,7 @@ const Details = () => {
 
 const AnimatedNumbers = ({ value }: { value: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
+  
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { duration: 3000 });
   const isInView = useInView(ref, { once: true });
@@ -67,8 +68,7 @@ const Skill = (props: Props) => {
 };
 const About = (props: Props) => {
   
-  const ref = React.useRef<HTMLDivElement>(null);
-
+ 
   const [axis, setAxis] = React.useState({
     nodejs: {
       x: "0vw",
@@ -103,8 +103,12 @@ const About = (props: Props) => {
       y: "0vh",
     },
   });
+  const ref = React.useRef<HTMLDivElement>(null);
+  const ref_main = useRef<HTMLDivElement>(null);
+  const { scrollYProgress : scrollYProgress_main} = useScroll({ container: ref_main });
+ const { scrollYProgress } = useScroll({ container: ref})
 
-  const { scrollYProgress } = useScroll({ container: ref });
+  
   var radius = [10, 15];
   var angle = [52, 225, 142, 315, 90, 180, 20, 270];
   var i = 0,
@@ -112,6 +116,10 @@ const About = (props: Props) => {
   var object: any = {};
 
   React.useEffect(() => {
+   
+    scrollYProgress.on("change", (e) => {
+      console.log(e);
+    })
     window.innerWidth > 768 ? (radius = [15, 25]) : (radius = [10, 15]);
     const y = 1;
     i = 0;
@@ -130,7 +138,8 @@ const About = (props: Props) => {
 
       setAxis(object);
     }
-    scrollYProgress.on("change", (y) => {
+    scrollYProgress_main.on("change", (y) => {
+     console.log(y);
       y = y * 4;
       i = 0;
       j = 0;
@@ -151,7 +160,7 @@ const About = (props: Props) => {
     });
   }, []);
   return (
-    <>
+    <main>
       <Head>
         <title>About</title>
         <meta
@@ -162,10 +171,14 @@ const About = (props: Props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex sm:flex-row flex-col  px-[10vw] justify-center items-center ">
+      <div
+     //ref={ref_main}
+      className="flex sm:flex-row flex-col  px-[10vw] justify-center items-center ">
         <TransitionEffect />
         <Lottie className="absolute w-10 h-10  bottom-[49%] left-[49%]" animationData={Mouse} loop={true} />
-        <div className="h-screen ml-[3vw] overflow  relative w-[50%] flex flex-col justify-center items-center">
+        <div
+         
+        className="h-screen ml-[3vw] overflow  relative w-[50%] flex flex-col justify-center items-center">
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
             animate={{ y: 0, clipPath: "inset(0% 0% 0% 0% round 10px)" }}
@@ -174,7 +187,9 @@ const About = (props: Props) => {
           >
             TechStack
           </motion.h2>
-
+<div
+className="fixed sm:top-auto top-[125px] flex flex-col justify-center items-center"
+>
           <motion.div
             initial={{ width: 0, height: 0 }}
             whileInView={{ width: "270px", height: "270px" }}
@@ -214,7 +229,8 @@ const About = (props: Props) => {
           {Object.entries(axis).map(([key, value]) => (
             <Skill key={key} x={value.x} y={value.y} name={key} />
           ))}
-          <div className="sm:bottom-0 bottom-[15vh] p-5 absolute flex flex-row gap-10">
+          </div>
+          <div className="sm:bottom-0 bottom-[68vh] p-5 absolute flex flex-row gap-10">
             <div className="flex flex-col justify-center items-center">
               <span className="text-5xl font-bold">
                 <AnimatedNumbers value={4} />+
@@ -237,7 +253,7 @@ const About = (props: Props) => {
         </div>
 
         <div
-          style={{}}
+         ref={ref}
           className="h-screen pt-[25vh] relative flex flex-col justify-start items-center ml-[2vw] sm:w-[50%] "
         >
           <motion.h2
@@ -250,11 +266,11 @@ const About = (props: Props) => {
           </motion.h2>
 
           <div
-            ref={ref}
+        
             className="flex flex-col items-center  text-lg overflow-x-hidden overflow-y-scroll px-[1.5vw]  mb-5"
           ><div className="  flex flex-col items-center">
             
-            <text className="font-extrabold text-xl  font-mono">SparkMesh</text>{" "}
+            <p className="font-extrabold text-xl  font-mono">SparkMesh</p>{" "}
             A dynamic software company that delivers cutting-edge technology
             solutions to businesses worldwide. At SparkMesh, we strive to ignite
             innovation and enable businesses to thrive in the digital age.
@@ -329,8 +345,8 @@ const About = (props: Props) => {
             
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 };
 

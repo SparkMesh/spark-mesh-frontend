@@ -15,7 +15,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, thumbnail, shortDescri
       transition={{ duration: 0.3 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className=" h-full bg-gray-900 text-white m-1 p-2.5 rounded-lg shadow-md shadow-black   cursor-pointer"
+      className=" h-full bg-gray-900 text-white m-1 p-2.5 rounded-lg shadow-md    cursor-pointer"
     >
       <img src={thumbnail} alt={title} className="w-full object-cover mb-4 rounded-lg" />
       <h3 className="text-xl font-semibold  truncate">{title}</h3>

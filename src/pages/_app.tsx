@@ -14,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
    // className="relative overflow-hidden h-screen w-screen "
     >
       <NavBar />
-      <AnimatePresence mode="wait">
+      <AnimatePresence 
+     mode="wait"
+      >
       <Component key={router.asPath}  {...pageProps} /></AnimatePresence>
       <SideBar 
       

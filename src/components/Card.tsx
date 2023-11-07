@@ -22,27 +22,27 @@ const Card: React.FC<CardProps> = ({ icon, title, description }) => {
 
   return (
     <motion.div
-      className="bg-gradient-to-r  from-gray-700 to-gray-900 translate-x-2  rounded-lg shadow-md shadow-black mt-[2vh] p-6 text-center sm:w-[17vw] md:w-[19vw] lg:w-[22vw]"
+      className="bg-gradient-to-r  from-gray-600 to-gray-900 translate-x-2  rounded-lg shadow-md shadow-black mt-[2vh] px-3 py-4 text-center sm:w-[17vh] md:w-[19vh] lg:w-[22vh]"
       whileHover="hover"
       variants={cardVariants}
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="w-[3vw] h-[3vw] md:w-[5.5vw] md:h-[5.5vw] lg:w-[8vw] lg:h-[8vw] bg-gray-900 p-2  rounded-lg mx-auto flex items-center justify-center mb-4"
+        className="w-[8vh] h-[8vh] bg-gray-900 p-2  rounded-lg mx-auto flex items-center justify-center mb-4"
         variants={iconVariants}
         transition={{ duration: 0.3 }}
       >
         {icon}
       </motion.div>
       <motion.h2
-        className="text-[1.3vw] md:text-[1.5vw] lg:text-[1.8vw] font-bold text-white mb-2"
+        className="text-[1.8vh] font-bold text-white mb-2"
         variants={textVariants}
         transition={{ duration: 0.3 }}
       >
         {title}
       </motion.h2>
       <motion.p
-        className="text-gray-300 font-thin text-[1.1vw] md:text-[1.3vw] lg:text-[1.5vw]"
+        className="text-gray-300 font-thin text-[1.5vh]"
         variants={textVariants}
         transition={{ duration: 0.3 }}
       >

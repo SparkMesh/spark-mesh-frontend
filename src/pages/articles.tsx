@@ -1,13 +1,18 @@
 import ArticleCard from '@/components/ArticleCard';
 import TransitionEffect from '@/components/TransitionEffect'
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion,useScroll } from 'framer-motion';
 import Image from 'next/image';
+import LitIcon from "@/components/LitIcon";
 type Props = {}
 
 const Articles = (props: Props) => {
   const [preview, setPreview] = React.useState(false);
   const [articleIndex, setArticleIndex] = React.useState(0);
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    container: ref,
+  });
   const articles = [
     {
       title: "Next.js Server-Side Rendering Deep Dive",
@@ -45,51 +50,66 @@ const Articles = (props: Props) => {
   return (
     <>
       <TransitionEffect/>
-      <AnimatePresence>
+     
+    <div className='w-screen overflow-hidden relative h-screen flex justify-center items-center'>
+    <AnimatePresence>
         
         {preview && (
           <motion.div
             initial={{ x: "80vw" }}
             animate={{ x: "0vw" }}
-            whileHover={{ height: "100vh",top:0 }}
+           onTap={()=>{
+            setPreview(false)
+           }}
             exit={{ x: "80vw" }}
-            transition={{ duration: 0.5 }}
-            className="absolute z-50 rounded-lg top-[20vh] p-2 right-0 w-[25vw]  transition- h-[60vh] overflow-y-scroll overflow-x-hidden border-2 border-gray-500 bg-gray-900  flex flex-col justify-start items-center"
+            transition={{ duration: 0.5,ease: "easeInOut" }}
+            className="absolute z-50  top-0  p-2  w-screen  transition- h-screen overflow-y-scroll overflow-x-hidden bg-opacity-70 bg-gray-900  flex flex-col justify-center items-center"
+          ><div
+         style={{zIndex:1000}}
+          className='w-[80vw] overflow-y-scroll overflow-x-hidden  flex flex-col justify-center items-center space-y-4 p-4 bg-gradient-to-r from-gray-600 to-gray-900 rounded-lg  shadow-md shadow-black mt-[2vh] px-3 py-4 text-center sm:w-[57%]'
           >
             
             <h1 className="text-2xl text-white font-bold">{articles[articleIndex].title}</h1>
             <p className="text-lg text-white">{articles[articleIndex].shortDescription}</p>
           <Image
               alt="preview"
-              className="rounded-lg w-[25vw] my-2"
+              className="rounded-lg w-[25vh]"
               src={articles[articleIndex].thumbnail}
               height={100}
               width={200}
 
             ></Image>  
             <p className="text-md text-white">{articles[articleIndex].description}</p>
-            
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    <div className='w-screen  relative h-screen flex justify-center items-center'>
     <motion.h2
-            initial={{ x: 50, clipPath: "inset(0% 0% 100% 0% round 10px)", rotate:-90 }}
-            animate={{ x: 0, clipPath: "inset(0% 0% 0% 0% round 10px)", rotate:-90 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="text-2xl -left-[3vw] tracking-widest absolute  font-thin"
+           initial={{
+            x: 50,
+            clipPath: "inset(0% 0% 100% 0% round 10px)",
+            rotate: -90,
+          }}
+          animate={{
+            x: 0,
+            clipPath: "inset(0% 0% 0% 0% round 10px)",
+            rotate: -90,
+          }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
+          className="text-2xl  sm:-left-[1vw] -left-[160px] tracking-widest absolute  font-thin"
           >
             Words Can Change The World!
           </motion.h2>
-          <AnimatePresence >
+         
       <motion.div
-      initial={{ height:"60vh",translateY:'0vh',paddingTop:'2vh' }}
-      whileHover={{ height:"75vh",translateY:'7.5vh',paddingTop:'2vh' }}
-      exit={{ height:"60vh",translateY:'0vh',paddingTop:'0vh' }}
-      transition={{ duration: 0.5 }}
+     ref={ref}
       style={{boxShadow:'0px 0px 10px 0px #808080'}}
      
-      className='overflow-y-scroll overflow-x-hidden   rounded-lg  p-4   w-[70%] grid grid-cols-3 gap-2 justify-center items-start'>
+      className="overflow-y-scroll  overflow-x-hidden h-[60%] px-2 rounded-lg pt-1.5 pb-4 sm:w-[57%] w-[70%]   flex flex-row justify-center items-start">
+        <LitIcon scrollYProgress={scrollYProgress} />
+        <div
+        className="grid sm:grid-cols-2 grid-cols-1  gap-2 "
+        >
         {articles.map((article, index)  => (
           <motion.div
           key={index}
@@ -108,9 +128,9 @@ const Articles = (props: Props) => {
         >
           <ArticleCard key={index} title={article.title} thumbnail={article.thumbnail} shortDescription={article.shortDescription} description={article.description} />
         </motion.div>
-        ))}
+        ))}</div>
 
-      </motion.div></AnimatePresence>
+      </motion.div>
       
       </div></>
   )

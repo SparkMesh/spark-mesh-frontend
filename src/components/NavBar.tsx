@@ -61,7 +61,9 @@ useEffect(() => {
   
   return (
     
-    <header className={`sm:absolute  fixed z-40 sm:top-5 sm:bottom-auto bottom-5 w-screen sm:px-[10vw] px-[5vw] py-[1.5vh] font-medium flex items-center justify-between`}>
+    <header 
+    style={{zIndex:50}}
+    className={`sm:absolute  fixed z-50 sm:top-5 sm:bottom-auto bottom-5 w-screen sm:px-[10vw] px-[5vw] py-[1.5vh] font-medium flex items-center justify-between`}>
       <nav className="flex w-full gap-2">
         <div className="flex gap-2 sm:w-auto w-full ">
         <CustomLink

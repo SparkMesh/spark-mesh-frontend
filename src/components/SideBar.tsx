@@ -63,7 +63,9 @@ window.addEventListener("resize", () => {
   return (
     <div >
       <div >
-      <header className="sm:absolute fixed z-40 sm:bottom-10 sm:top-auto top-3 sm:h-[10px]   w-screen sm:px-[1vw] px-[5vw] py-[2vh]  font-medium  flex items-end justify-between">
+      <header 
+        style={{zIndex:50}}
+      className="sm:absolute fixed z-40 sm:bottom-10 sm:top-auto top-3 sm:h-[10px]   w-screen sm:px-[1vw] px-[5vw] py-[2vh]  font-medium  flex items-end justify-between">
        
        <CustomLink
          key={2}
@@ -109,12 +111,12 @@ window.addEventListener("resize", () => {
        style={
        
         {width:width<640 ? width-16 : (width/100)*8}}
-      className="bg-slate-300  sm:m-0 m-2 sm:rounded-none rounded-2xl fixed sm:z-0 z-30  top-0 sm:h-screen   h-[65px]"></div>
+      className="bg-slate-300  sm:m-0 m-2 sm:rounded-none rounded-lg fixed sm:z-0 z-30  top-0 sm:h-screen   h-[65px]"></div>
       <div 
       style={
        
         {width:width<640 ? width-16 : (width/100)*8}}
-      className={`bg-slate-300 sm:m-0 m-2 sm:rounded-none sm:z-0 z-30 rounded-2xl fixed sm:right-0 sm:top-0 bottom-0 sm:h-screen h-[65px]`}></div>
+      className={`bg-slate-300 sm:m-0 m-2 sm:rounded-none sm:z-0 z-30 rounded-lg fixed sm:right-0 sm:top-0 bottom-0 sm:h-screen h-[65px]`}></div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const LitIcon = ({scrollYProgress}:Props) => {
    
     
   return (
-    <figure className='absolute bottom-[80%]  sm:bottom-0 sm:left-[45.5%] left-[33.9%] stroke-black'>
+    <figure className='absolute bottom-[80%] z-1 sm:bottom-0 sm:left-[45.5%] left-[33.9%] stroke-black'>
         <svg
         
         width={75} height={75} viewBox="0 0 100 100"
