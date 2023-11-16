@@ -175,7 +175,7 @@ const About = (props: Props) => {
      //ref={ref_main}
       className="flex sm:flex-row flex-col  px-[10vw] justify-center items-center ">
         <TransitionEffect />
-        <Lottie className="absolute w-10 h-10  bottom-[49%] left-[49%]" animationData={Mouse} loop={true} />
+        <Lottie className="absolute w-10 h-10 right-[10%] bottom-[85%] sm:bottom-[49%]  sm:left-[49%]" animationData={Mouse} loop={true} />
         <div
          
         className="h-screen ml-[3vw] overflow  relative w-[50%] flex flex-col justify-center items-center">
@@ -188,7 +188,7 @@ const About = (props: Props) => {
             TechStack
           </motion.h2>
 <div
-className="fixed sm:top-auto top-[125px] flex flex-col justify-center items-center"
+className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-center"
 >
           <motion.div
             initial={{ width: 0, height: 0 }}

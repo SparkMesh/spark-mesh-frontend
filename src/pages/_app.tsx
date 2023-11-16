@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
     <main 
+    
    // className="relative overflow-hidden h-screen w-screen "
     >
       <NavBar />

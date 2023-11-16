@@ -1,6 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import React from 'react';
+import React, { use } from 'react';
 import { BoltIcon } from '@heroicons/react/24/outline';
 
 interface ProjectCardProps {
@@ -45,7 +45,7 @@ index
       transition: {
         delay: 0.5,
         duration: 0.5,
-        ease: 'easeOut',
+        ease: 'easeInOut',
       },
     },
   };
@@ -58,17 +58,20 @@ index
       transition: {
         delay: 0.7,
         duration: 0.5,
-        ease: 'easeOut',
+        ease: 'easeInOut',
       },
     },
   };
 
   const [preview, setPreview] = React.useState(false);
+  React.useEffect(() => {
+   projectIndex==index?setPreview(true):setPreview(false)
+  }, [projectIndex]);
 
   return (
     <motion.div
     
-      className={`bg-gray-50   p-6 cursor-pointer  ${projectIndex == index ? "bg-gray-200 " : 'sm:hover:bg-gray-200  '}  rounded-lg shadow-md`}
+      className={`bg-gray-50   p-6 cursor-pointer  ${preview ? "bg-gray-300 " : 'sm:hover:bg-gray-200  '}  rounded-lg shadow-md`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -97,7 +100,7 @@ index
                   className=" hover:text-yellow-600 border-2 border-white hover:scale-105  mt-1 rounded-lg flex justify-center items-center px-2 py-1  transition duration-300 animate-gradient"
                 >
                   <BoltIcon className="h-5 w-5" />
-                  <text className="ml-2">Live</text>
+                  <p className="ml-2">Live</p>
                 </motion.a>
             
             </h2>

@@ -119,7 +119,7 @@ const Projects = (props: Props) => {
           </motion.div>
         ): null}
       </AnimatePresence>
-        <motion.h2
+        <motion.div
           initial={{
             x: 50,
             clipPath: "inset(0% 0% 100% 0% round 10px)",
@@ -131,10 +131,10 @@ const Projects = (props: Props) => {
             rotate: -90,
           }}
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-          className="text-2xl  sm:-left-[1vw] -left-[160px] tracking-widest absolute  font-thin"
+          className="text-2xl xl:left-[5px] lg:-left-[10px] md:-left-[50px]  sm:-left-[100px] -left-[160px] tracking-widest absolute  font-thin"
         >
           Imagination Trumps Knowledge!
-        </motion.h2>
+        </motion.div>
         <motion.div
           ref={ref}
           

@@ -1,6 +1,6 @@
 import ArticleCard from '@/components/ArticleCard';
 import TransitionEffect from '@/components/TransitionEffect'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AnimatePresence, motion,useScroll } from 'framer-motion';
 import Image from 'next/image';
 import LitIcon from "@/components/LitIcon";
@@ -46,7 +46,17 @@ const Articles = (props: Props) => {
     },
     // Add more blog objects here
   ];
-  
+  const [width, setWidth] = React.useState(0);
+  const [height, setHeight] = React.useState(0);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+    );
+  }, []);
   return (
     <>
       <TransitionEffect/>
@@ -54,35 +64,47 @@ const Articles = (props: Props) => {
     <div className='w-screen overflow-hidden relative h-screen flex justify-center items-center'>
     <AnimatePresence>
         
-        {preview && (
+       
+     {  
+     preview && (
+
           <motion.div
-            initial={{ x: "80vw" }}
-            animate={{ x: "0vw" }}
-           onTap={()=>{
-            setPreview(false)
+            initial={{ x: "100%" }}
+            animate={{ x: "0%" }}
+           onTap={(e:MouseEvent,i)=>{
+          //  if(width>1024)
+          console.log("framer",i)
+            if(e.pageX>((width/100)*11) && e.pageX<((width/100)*89) && e.pageY>((height/100)*11) && e.pageY<((height/100)*89) )
+            {console.log("framer",e)}
+            else{
+              setPreview(false)
+            }
+            
+           
            }}
-            exit={{ x: "80vw" }}
+            exit={{ x: "-100%" }}
             transition={{ duration: 0.5,ease: "easeInOut" }}
-            className="absolute z-50  top-0  p-2  w-screen  transition- h-screen overflow-y-scroll overflow-x-hidden bg-opacity-70 bg-gray-900  flex flex-col justify-center items-center"
+            className="absolute z-50 bg-opacity-80  top-0  p-2  w-screen   h-screen   bg-white  flex flex-col justify-center items-center"
           ><div
-         style={{zIndex:1000}}
-          className='w-[80vw] overflow-y-scroll overflow-x-hidden  flex flex-col justify-center items-center space-y-4 p-4 bg-gradient-to-r from-gray-600 to-gray-900 rounded-lg  shadow-md shadow-black mt-[2vh] px-3 py-4 text-center sm:w-[57%]'
+        
+         style={{zIndex:1}}
+          className='w-[80%] lg:w-[800px] h-[700px]  overflow-y-scroll overflow-x-hidden  flex flex-col justify-start items-center space-y-4  bg-gradient-to-r from-gray-600 to-gray-900 rounded-lg  shadow-md shadow-black  px-3 py-4 text-center '
           >
             
             <h1 className="text-2xl text-white font-bold">{articles[articleIndex].title}</h1>
             <p className="text-lg text-white">{articles[articleIndex].shortDescription}</p>
           <Image
               alt="preview"
-              className="rounded-lg w-[25vh]"
+              className="rounded-lg w-full object-cover"
               src={articles[articleIndex].thumbnail}
-              height={100}
-              width={200}
+              height={200}
+              width={400}
 
             ></Image>  
             <p className="text-md text-white">{articles[articleIndex].description}</p>
             </div>
           </motion.div>
-        )}
+     )}
       </AnimatePresence>
     <motion.h2
            initial={{
@@ -96,7 +118,7 @@ const Articles = (props: Props) => {
             rotate: -90,
           }}
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-          className="text-2xl  sm:-left-[1vw] -left-[160px] tracking-widest absolute  font-thin"
+          className="text-2xl xl:left-[5px] lg:-left-[10px] md:-left-[50px]  sm:-left-[100px] -left-[160px] tracking-widest absolute  font-thin"
           >
             Words Can Change The World!
           </motion.h2>
