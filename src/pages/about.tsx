@@ -12,8 +12,7 @@ import {
   useSpring,
 } from "framer-motion";
 import Card from "@/components/Card";
-import Lottie from "lottie-react";
-import Mouse from '../Assets/Mouse.json'
+
 type Props = {
   name: string;
   x: string;
@@ -34,7 +33,7 @@ const AnimatedNumbers = ({ value }: { value: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
   
   const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 3000 });
+  const springValue = useSpring(motionValue, { duration: 5000 });
   const isInView = useInView(ref, { once: true });
   React.useEffect(() => {
     if (isInView) {
@@ -68,7 +67,7 @@ const Skill = (props: Props) => {
 };
 const About = (props: Props) => {
   
- 
+ const [width, setWidth] = React.useState(0);
   const [axis, setAxis] = React.useState({
     nodejs: {
       x: "0vw",
@@ -116,11 +115,12 @@ const About = (props: Props) => {
   var object: any = {};
 
   React.useEffect(() => {
-   
-    scrollYProgress.on("change", (e) => {
-      console.log(e);
-    })
-    window.innerWidth > 768 ? (radius = [15, 25]) : (radius = [10, 15]);
+    setWidth(window.innerWidth)
+   window.addEventListener("resize",()=>{
+setWidth(window.innerWidth)
+   })
+    
+    width > 768 ? (radius = [10, 15]) : (radius = [10, 15]);
     const y = 1;
     i = 0;
     j = 0;
@@ -158,6 +158,26 @@ const About = (props: Props) => {
         setAxis(object);
       }
     });
+    scrollYProgress.on("change", (y) => {
+      console.log(y);
+       y = y * 4;
+       i = 0;
+       j = 0;
+       angle = angle.map((a) => a + y);
+ 
+       for (const [key, value] of Object.entries(axis)) {
+         if (i == 4) {
+           j = 1;
+         }
+         var a = radius[j] * Math.sin((Math.PI * 2 * angle[i]) / 360);
+         var b = radius[j] * Math.cos((Math.PI * 2 * angle[i]) / 360);
+         i++;
+ 
+         object = { ...object, [key]: { x: `${a}vh`, y: `${b}vh` } };
+ 
+         setAxis(object);
+       }
+     });
   }, []);
   return (
     <main>
@@ -172,10 +192,10 @@ const About = (props: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-     //ref={ref_main}
+    //ref={ ref_main }
       className="flex sm:flex-row flex-col  px-[10vw] justify-center items-center ">
         <TransitionEffect />
-        <Lottie className="absolute w-10 h-10 right-[10%] bottom-[85%] sm:bottom-[49%]  sm:left-[49%]" animationData={Mouse} loop={true} />
+       
         <div
          
         className="h-screen ml-[3vw] overflow  relative w-[50%] flex flex-col justify-center items-center">
@@ -230,7 +250,7 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
             <Skill key={key} x={value.x} y={value.y} name={key} />
           ))}
           </div>
-          <div className="sm:bottom-0 bottom-[68vh] p-5 absolute flex flex-row gap-10">
+          <div className="sm:bottom-0 bottom-[8vh] p-5 absolute flex flex-row gap-10">
             <div className="flex flex-col justify-center items-center">
               <span className="text-5xl font-bold">
                 <AnimatedNumbers value={4} />+
@@ -253,7 +273,7 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
         </div>
 
         <div
-         ref={ref}
+        // 
           className="h-screen pt-[25vh] relative flex flex-col justify-start items-center ml-[2vw] sm:w-[50%] "
         >
           <motion.h2
@@ -266,7 +286,7 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
           </motion.h2>
 
           <div
-        
+        ref={ref }
             className="flex flex-col items-center  text-lg overflow-x-hidden overflow-y-scroll px-[1.5vw]  mb-5"
           ><div className="  flex flex-col items-center">
             
@@ -280,7 +300,7 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
             <motion.div
             
 
-            className="flex flex-col gap-[2vh] py-[2vh]">
+            className="flex flex-col gap-[2vh] pt-[20px] pb-[100px] ">
               <motion.div className="flex justify-center font-extrabold text-xl  font-mono">Our Services</motion.div>
             <Card
               icon={

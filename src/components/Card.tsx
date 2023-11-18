@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ icon, title, description }) => {
 
   return (
     <motion.div
-      className="bg-gradient-to-r  from-gray-600 to-gray-900 translate-x-2  rounded-lg shadow-md shadow-black mt-[2vh] px-3 py-4 text-center sm:w-[17vh] md:w-[19vh] lg:w-[22vh]"
+      className="bg-gradient-to-r  from-gray-600 to-gray-900 translate-x-1  rounded-lg shadow-md shadow-black mt-[2vh] px-3 py-4 text-center w-[300px] sm:w-[250px] lg:w-[300px]"
       whileHover="hover"
       variants={cardVariants}
       transition={{ duration: 0.3 }}
@@ -35,14 +35,14 @@ const Card: React.FC<CardProps> = ({ icon, title, description }) => {
         {icon}
       </motion.div>
       <motion.h2
-        className="text-[1.8vh] font-bold text-white mb-2"
+        className="text-xl font-bold text-white mb-2"
         variants={textVariants}
         transition={{ duration: 0.3 }}
       >
         {title}
       </motion.h2>
       <motion.p
-        className="text-gray-300 font-thin text-[1.5vh]"
+        className="text-gray-300 font-thin text-lg"
         variants={textVariants}
         transition={{ duration: 0.3 }}
       >
