@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import TesCard from "./TesCard";
 
 interface CarouselProps {
@@ -58,7 +58,7 @@ const Carousel: React.FC<CarouselProps> = ({ currentPage, setPage, direction }) 
   };
 
   return (
-    <div className="slider-container">
+    <div className="h-[80vh] w-screen flex flex-col items-center justify-center ">
       <AnimatePresence custom={direction}>
         <motion.div
           key={currentPage}

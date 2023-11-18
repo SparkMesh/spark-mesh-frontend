@@ -63,18 +63,20 @@ const Testimonials: React.FC = () => {
   }
 
   return (
-    <div className="relative h-screen w-screen">
-      <TransitionEffect />
-      <div className="absolute left-[26%] top-[40%]"><Carousel
+    <>
+    <TransitionEffect />
+    <div className="h-screen w-screen">
+      
+      <Carousel
       currentPage={currentPage}
       direction={direction}
       setPage={setPage}
-    /></div>
-    <div className="absolute left-[40%] bottom-0"><Pagination currentPage={currentPage}
-                setPage={setPage} /></div>
+    />
+    <Pagination currentPage={currentPage}
+                setPage={setPage} />
     
   </div>
-      
+  </>
   );
 };
 

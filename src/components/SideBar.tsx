@@ -99,24 +99,24 @@ window.addEventListener("resize", () => {
         initial={{ height: 0 }}
         animate={{ height: "50vh" }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="border-t-[0.3vh] border-gray-800 top-[50vh] sm:border-r-[0.3vw] absolute   sm:block hidden sm:top-0 sm:left-[8%]  sm:border-black"
+        className="border-r-[0.3vw] absolute  top-0 left-[8%] sm:block hidden border-black"
       ></motion.div>
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: "50vh" }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="border-t-[0.3vh] top-[50vh]  sm:border-r-[0.3vw] absolute  sm:block hidden sm:top-0 sm:right-[8%]  sm:border-black"
+        className="border-r-[0.3vw] absolute  top-0 right-[8%] sm:block hidden border-black"
       ></motion.div>
       <div 
        style={
        
         {width:width<640 ? width-16 : (width/100)*8}}
-      className="bg-slate-300  sm:m-0 m-2 sm:rounded-none rounded-lg fixed sm:z-0 z-30  top-0 sm:h-screen   h-[65px]"></div>
+      className="bg-slate-300  sm:m-0 m-2 sm:rounded-none rounded-lg fixed sm:z-0   top-0 sm:h-screen   h-[65px]"></div>
       <div 
       style={
        
         {width:width<640 ? width-16 : (width/100)*8}}
-      className={`bg-slate-300 sm:m-0 m-2 sm:rounded-none sm:z-0 z-30 rounded-lg fixed sm:right-0 sm:top-0 bottom-0 sm:h-screen h-[65px]`}></div>
+      className={`bg-slate-300 sm:m-0 m-2 sm:rounded-none sm:z-0  rounded-lg fixed sm:right-0 sm:top-0 bottom-0 sm:h-screen h-[65px]`}></div>
     </div>
   );
 };

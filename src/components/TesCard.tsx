@@ -10,7 +10,7 @@ interface CardProps {
 const TesCard: React.FC<CardProps> = ({ name, designation, review,image }) => {
   return (
     <motion.div
-      className="card p-6 bg-black rounded-lg shadow-lg flex flex-col text-white"
+      className="w-[250px] sm:w-[350px] lg:w-[450px] p-6 bg-black rounded-lg shadow-lg flex flex-col text-white"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -24,8 +24,8 @@ const TesCard: React.FC<CardProps> = ({ name, designation, review,image }) => {
     className="rounded-full"
         src={image}
         alt="Picture of the author"
-        width={59}
-        height={59}/></div>
+        width={60}
+        height={60}/></div>
       
       <p className="text-gray-300">{review}</p>
       

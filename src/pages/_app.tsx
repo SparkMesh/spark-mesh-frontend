@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main 
     
-   // className="relative overflow-hidden h-screen w-screen "
+   className="relative h-screen w-screen "
     >
       <NavBar />
       <AnimatePresence 

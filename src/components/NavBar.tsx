@@ -62,8 +62,8 @@ useEffect(() => {
   return (
     
     <header 
-    style={{zIndex:50}}
-    className={`sm:absolute  fixed z-50 sm:top-5 sm:bottom-auto bottom-5 w-screen sm:px-[10vw] px-[5vw] py-[1.5vh] font-medium flex items-center justify-between`}>
+    style={{zIndex:1000}}
+    className={`sm:absolute  fixed sm:top-5 sm:bottom-auto bottom-5 w-screen sm:px-[10vw] px-[5vw] py-[1.5vh] font-medium flex items-center justify-between`}>
       <nav className="flex w-full gap-2">
         <div className="flex gap-2 sm:w-auto w-full ">
         <CustomLink
@@ -109,7 +109,7 @@ useEffect(() => {
       </nav>
       <Logo />
 
-      <nav className="fixed  bg-white w-[130px] p-1 rounded-full sm:top-[4vh] top-[2.65vh] sm:left-auto sm:right-[10vw]  left-[33%] flex flex-row gap-4">
+      <nav className=" fixed bg-white w-[130px] p-1 hover;scale-125 rounded-full sm:top-[4vh] top-[2.65vh] md:left-auto sm:right-[10vw] sm:left-auto left-[34%] flex flex-row gap-4">
         <SocialIcon
           style={{ height: 30, width: 30 }}
           className="hover:scale-125 transition focus:scale-75"

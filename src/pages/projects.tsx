@@ -52,14 +52,7 @@ const Projects = (props: Props) => {
   const [preview, setPreview] = React.useState(false);
   const [previewResP, setPreviewResP] = React.useState(false);
   const [projectIndex, setProjectIndex] = React.useState(-1);
-  // React.useEffect(() => {
-  //   if (props.preview) {
-  //     setPreview(true);
-  //     console.log("preview");
-  //   } else {
-  //     setPreview(false);
-  //   }
-  // }, []);
+
   const [width, setWidth] = React.useState(0);
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -93,8 +86,7 @@ const Projects = (props: Props) => {
           initial="hidden"
           animate={"visible" }
           style={{zIndex:100}}
-            // initial={{ x: "10vw" }}
-            // animate={{ x: "0vw" }}
+           
             exit={{ x: "100vw",  }}
             transition={{ duration: 0.5,delay:0.3, ease: "easeInOut" }}
           
@@ -141,7 +133,7 @@ const Projects = (props: Props) => {
           className="overflow-y-scroll  overflow-x-hidden h-[60%] p-2  sm:w-[57%] w-[70%]   flex flex-row justify-center items-start"
         >
           <LitIcon scrollYProgress={scrollYProgress} />
-          <div className="sm:grid sm:grid-cols-2 flex flex-col  gap-4 ">
+          <div className="lg:grid lg:grid-cols-2 flex flex-col  gap-4 ">
           {projects.map((project,key) => {
            
 
@@ -150,14 +142,7 @@ return (
            
               key={key}
               
-             
-              // onHoverStart={() => {
-              //   setPreview(true);
-              //   setProjectIndex(key);
-              // }}
-              // onHoverEnd={() => {
-              //   setPreview(false);
-              // }}
+            
               onTap={() => {
                 setPreviewResP(key == projectIndex?!previewResP:true);
                 if(key == projectIndex)
@@ -167,7 +152,7 @@ return (
                 setProjectIndex(key);
               }
               }}
-             // whileTap={{ scale: key == projectIndex ? 1:0.9 }}
+            
               style={{ 
                 borderRadius: "8px",
                
@@ -175,7 +160,7 @@ return (
                 scale: key == projectIndex ? 0.9:1,
                 translateY: key == projectIndex ? 10 : 0
               ,transition: "all 0.15s "}}
-             // transition={{ duration: 0.5, ease: "easeInOut" }}
+           
               
 
             >

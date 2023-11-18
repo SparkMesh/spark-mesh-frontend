@@ -48,6 +48,10 @@ const Articles = (props: Props) => {
   ];
   const [width, setWidth] = React.useState(0);
   const [height, setHeight] = React.useState(0);
+  const [cardVariants,setCardVariants] = React.useState({
+    hover: {  backgroundColor: '#FFF888', },
+    
+  });
   useEffect(() => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
@@ -69,14 +73,22 @@ const Articles = (props: Props) => {
      preview && (
 
           <motion.div
+          variants={cardVariants}
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
+            whileTap='hover'
            onTap={(e:MouseEvent,i)=>{
-          //  if(width>1024)
-          console.log("framer",i)
+          
+       
+            setCardVariants({hover: {  backgroundColor: '#FFF', },})
             if(e.pageX>((width/100)*11) && e.pageX<((width/100)*89) && e.pageY>((height/100)*11) && e.pageY<((height/100)*89) )
-            {console.log("framer",e)}
+            {
+              setCardVariants({hover: {  backgroundColor: '#FFF', },})
+              setPreview(true)
+            }
             else{
+              setCardVariants({hover: {  backgroundColor: '#000', },})
+              
               setPreview(false)
             }
             
@@ -88,7 +100,7 @@ const Articles = (props: Props) => {
           ><div
         
          style={{zIndex:1}}
-          className='w-[80%] lg:w-[800px] h-[700px]  overflow-y-scroll overflow-x-hidden  flex flex-col justify-start items-center space-y-4  bg-gradient-to-r from-gray-600 to-gray-900 rounded-lg  shadow-md shadow-black  px-3 py-4 text-center '
+          className='w-[80%] lg:w-[800px] h-[700px]  overflow-y-scroll overflow-x-hidden  flex flex-col justify-start items-center space-y-4  bg-gradient-to-l from-gray-600 to-gray-900 rounded-lg  shadow-md shadow-black  px-3 py-4 text-center '
           >
             
             <h1 className="text-2xl text-white font-bold">{articles[articleIndex].title}</h1>

@@ -9,7 +9,8 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ icon, title, description }) => {
   const cardVariants = {
-    hover: { x: -5, y: -5, scale: 1.05},
+    hover: {  y: -5, },
+    
   };
 
   const iconVariants = {
@@ -22,8 +23,9 @@ const Card: React.FC<CardProps> = ({ icon, title, description }) => {
 
   return (
     <motion.div
-      className="bg-gradient-to-r  from-gray-600 to-gray-900 translate-x-1  rounded-lg shadow-md shadow-black mt-[2vh] px-3 py-4 text-center w-[300px] sm:w-[250px] lg:w-[300px]"
+      className="bg-gradient-to-l  from-gray-600 to-gray-900   rounded-lg shadow-md shadow-black mt-[2vh] px-3 py-4 text-center w-[300px] sm:w-[250px] lg:w-[300px]"
       whileHover="hover"
+     
       variants={cardVariants}
       transition={{ duration: 0.3 }}
     >
