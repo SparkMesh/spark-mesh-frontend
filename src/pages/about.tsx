@@ -113,13 +113,18 @@ const About = (props: Props) => {
   var i = 0,
     j = 0;
   var object: any = {};
-
   React.useEffect(() => {
     setWidth(window.innerWidth)
    window.addEventListener("resize",()=>{
 setWidth(window.innerWidth)
-   })
-    
+   })}, [])
+  React.useMemo(() => {
+  
+   var trigger = 0
+    setInterval(() => {
+     trigger = trigger + 1
+    }, 10);
+
     width > 768 ? (radius = [10, 15]) : (radius = [10, 15]);
     const y = 1;
     i = 0;
@@ -139,11 +144,11 @@ setWidth(window.innerWidth)
       setAxis(object);
     }
     scrollYProgress_main.on("change", (y) => {
-     console.log(y);
-      y = y * 4;
+      if(trigger%2==0){
+    
       i = 0;
       j = 0;
-      angle = angle.map((a) => a + y);
+      angle = angle.map((a) => a + 6);
 
       for (const [key, value] of Object.entries(axis)) {
         if (i == 4) {
@@ -157,13 +162,14 @@ setWidth(window.innerWidth)
 
         setAxis(object);
       }
+    }
     });
     scrollYProgress.on("change", (y) => {
-      console.log(y);
-       y = y * 4;
+      if(trigger%2==0){
+   
        i = 0;
        j = 0;
-       angle = angle.map((a) => a + y);
+       angle = angle.map((a) => a + 6);
  
        for (const [key, value] of Object.entries(axis)) {
          if (i == 4) {
@@ -177,6 +183,7 @@ setWidth(window.innerWidth)
  
          setAxis(object);
        }
+      }
      });
   }, []);
   return (
@@ -250,7 +257,7 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
             <Skill key={key} x={value.x} y={value.y} name={key} />
           ))}
           </div>
-          <div className="sm:bottom-0 bottom-[8vh] p-5 absolute flex flex-row gap-10">
+          <div className="sm:bottom-0 bottom-[8vh] sm:p-5  py-5 absolute flex flex-row gap-10">
             <div className="flex flex-col justify-center items-center">
               <span className="text-5xl font-bold">
                 <AnimatedNumbers value={4} />+
@@ -274,13 +281,13 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
 
         <div
         // 
-          className="h-screen pt-[25vh] relative flex flex-col justify-start items-center ml-[2vw] sm:w-[50%] "
+          className="h-screen sm:pt-[25vh] pt-[100px] relative flex flex-col justify-start items-center ml-[2vw] sm:w-[50%] "
         >
           <motion.h2
             initial={{ y: 50, clipPath: "inset(0% 0% 100% 0% round 10px)" }}
             animate={{ y: 0, clipPath: "inset(0% 0% 0% 0% round 10px)" }}
             transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="text-4xl tracking-widest absolute top-[13vh] font-thin"
+            className="text-4xl tracking-widest absolute sm:top-[13vh] top-[20px] font-thin"
           >
             Overview
           </motion.h2>

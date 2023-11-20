@@ -58,7 +58,7 @@ const Carousel: React.FC<CarouselProps> = ({ currentPage, setPage, direction }) 
   };
 
   return (
-    <div className="h-[80vh] w-screen flex flex-col items-center justify-center ">
+    <div className="h-[75vh] w-screen flex flex-col items-center justify-center ">
       <AnimatePresence custom={direction}>
         <motion.div
           key={currentPage}

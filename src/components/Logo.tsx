@@ -17,7 +17,7 @@ const Logo = (props: Props) => {
   
      }}
   
-    className='absolute z-50 sm:left-[47vw] left-[42.5vw] -top-[1vh] border-2 flex justify-center items-center border-white rounded-full p-8'>
+    className='absolute z-50 sm:left-[47vw] left-[40.5vw] -top-[1vh] border-2 flex justify-center items-center border-white rounded-full p-8'>
         <MotionLink 
         
     whileHover={{ 
