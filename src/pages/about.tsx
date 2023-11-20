@@ -120,10 +120,10 @@ setWidth(window.innerWidth)
    })}, [])
   React.useMemo(() => {
   
-   var trigger = 0
-    setInterval(() => {
-     trigger = trigger + 1
-    }, 10);
+  //  var trigger = 0
+  //   setInterval(() => {
+  //    trigger = trigger + 1
+  //   }, 10);
 
     width > 768 ? (radius = [10, 15]) : (radius = [10, 15]);
     const y = 1;
@@ -144,7 +144,7 @@ setWidth(window.innerWidth)
       setAxis(object);
     }
     scrollYProgress_main.on("change", (y) => {
-      if(trigger%2==0){
+      // if(trigger%2==0){
     
       i = 0;
       j = 0;
@@ -162,10 +162,10 @@ setWidth(window.innerWidth)
 
         setAxis(object);
       }
-    }
+    // }
     });
     scrollYProgress.on("change", (y) => {
-      if(trigger%2==0){
+      // if(trigger%2==0){
    
        i = 0;
        j = 0;
@@ -183,7 +183,7 @@ setWidth(window.innerWidth)
  
          setAxis(object);
        }
-      }
+      // }
      });
   }, []);
   return (
@@ -220,31 +220,31 @@ className="sticky  sm:top-auto top-[125px] flex flex-col justify-center items-ce
           <motion.div
             initial={{ width: 0, height: 0 }}
             whileInView={{ width: "270px", height: "270px" }}
-            transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
             className="flex items-center justify-center rounded-full border-2 border-black"
           >
             <motion.div
               initial={{ width: 0, height: 0 }}
               whileInView={{ width: "200px", height: "200px" }}
-              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
               className="flex items-center justify-center rounded-full border-2 border-black"
             >
               <motion.div
                 initial={{ width: 0, height: 0 }}
                 whileInView={{ width: "130px", height: "130px" }}
-                transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
                 className="flex items-center justify-center rounded-full border-2 border-black"
               >
                 <motion.div
                   initial={{ width: 0, height: 0 }}
                   whileInView={{ width: "70px", height: "70px" }}
-                  transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
                   className="flex items-center justify-center rounded-full border-2 border-black"
                 >
                   <motion.div
                     initial={{ width: 0, height: 0 }}
                     whileInView={{ width: "50px", height: "50px" }}
-                    transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+                    transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
                     className="flex z-0 bg-black overflow-hidden text-white items-center justify-center rounded-full border-2 border-black"
                   >
                     Stack

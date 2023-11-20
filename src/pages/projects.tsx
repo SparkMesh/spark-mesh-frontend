@@ -130,7 +130,7 @@ const Projects = (props: Props) => {
         <motion.div
           ref={ref}
           
-          className="overflow-y-scroll  overflow-x-hidden h-[60%] p-2  sm:w-[57%] w-[70%]   flex flex-row justify-center items-start"
+          className="overflow-y-scroll  overflow-x-hidden h-[60%] p-2  sm:w-[57%] w-[70%] bg-gray-100 rounded-xl  flex flex-row justify-center items-start"
         >
           <LitIcon scrollYProgress={scrollYProgress} />
           <div className="lg:grid lg:grid-cols-2 flex flex-col  gap-4 ">

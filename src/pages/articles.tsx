@@ -73,18 +73,32 @@ const Articles = (props: Props) => {
      preview && (
 
           <motion.div
+          style={{zIndex:100}}
           variants={cardVariants}
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
             whileTap='hover'
            onTap={(e:MouseEvent,i)=>{
-          
+          console.log(e.pageX)
        
             setCardVariants({hover: {  backgroundColor: '#FFF', },})
             if(e.pageX>((width/100)*11) && e.pageX<((width/100)*89) && e.pageY>((height/100)*11) && e.pageY<((height/100)*89) )
             {
-              setCardVariants({hover: {  backgroundColor: '#FFF', },})
-              setPreview(true)
+             
+              if(width > 1024){
+                if(e.pageX>((width-800)/2) && e.pageX<(800+(width-800)/2) && e.pageY>((height/100)*11) && e.pageY<((height/100)*89) )
+                {
+                  setCardVariants({hover: {  backgroundColor: '#FFF', },})
+                  setPreview(true)
+                }
+                else {
+                
+
+                  setCardVariants({hover: {  backgroundColor: '#000', },})
+              
+                  setPreview(false)
+                }
+              }
             }
             else{
               setCardVariants({hover: {  backgroundColor: '#000', },})
@@ -96,7 +110,7 @@ const Articles = (props: Props) => {
            }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.5,ease: "easeInOut" }}
-            className="absolute z-50 bg-opacity-80  top-0  p-2  w-screen   h-screen   bg-white  flex flex-col justify-center items-center"
+            className="absolute  bg-opacity-80  top-0  p-2  w-screen   h-screen   bg-gray-400  flex flex-col justify-center items-center"
           ><div
         
          style={{zIndex:1}}

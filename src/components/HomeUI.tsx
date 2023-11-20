@@ -112,9 +112,9 @@ const HomeUI = (props: Props) => {
           animate={{ x:0,opacity:1}}
           transition={{ delay: 0.5,ease: "easeInOut", }}
           viewport={{ once: true }}
-          className="flex  justify-center group focus:scale-90 items-center sm:w-[17vw] w-[38vw] gap-2 bg-black rounded-lg p-5 m-2 text-white font-semibold border-2 border-black hover:bg-white hover:text-black"
+          className="flex  justify-center group focus:scale-90 items-center  w-[145px] gap-2 bg-black rounded-lg p-5  text-white font-semibold border-2 border-black hover:bg-white hover:text-black"
         >
-          <p className="group-focus:scale-90 transition-all ">Company Portfolio</p><LinkIcon className="group-focus:scale-90 transition-all w-[10vw] sm:w-[2.3vw] " />
+          <p className="group-focus:scale-90 transition-all ">Company Portfolio</p><LinkIcon className="group-focus:scale-90 transition-all sm:block absolute right-4 w-[24px] " />
         </MotionLink></div>
         <div className="flex justify-start">
         <MotionLink
@@ -129,7 +129,7 @@ const HomeUI = (props: Props) => {
           className="flex gap-2 justify-start items-center group "
           href="mailto:sparkmeshtech@gmail.com"
         >
-         <p className="group-focus:scale-90 transition-all text-2xl font-thin">Contact Us</p>  <ArrowRightIcon className="group-hover:rotate-180 transition-all group-focus:scale-75  w-[8vw] sm:w-[2.3vw]" />
+         <p className="group-focus:scale-90 transition-all text-2xl font-thin">Contact Us</p>  <ArrowRightIcon className="group-hover:rotate-180 transition-all group-focus:scale-75  w-[24px] " />
         </MotionLink></div>
       {/* </div> */}
     </div>

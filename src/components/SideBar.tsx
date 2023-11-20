@@ -33,7 +33,7 @@ const CustomLink = ({
     >
       {title}
       <span
-        className={`h-[1.5px]  rounded-full inline-block bg-black absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 ${
+        className={`h-[2px]  rounded-full inline-block bg-black absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 ${
           router.asPath === href ? "w-full" : "w-0"
         }`}
       ></span>
@@ -62,11 +62,12 @@ window.addEventListener("resize", () => {
 
   return (
     <div
-    style={{zIndex:999}} >
+    style={{zIndex:50}} 
+    >
       <div >
       <header 
         
-      className="sm:absolute fixed z-40 sm:bottom-10 sm:top-auto top-3 sm:h-[10px]   w-screen sm:px-[1vw] px-[5vw] py-[2vh]  font-medium  flex items-end justify-between">
+      className="sm:absolute fixed z-40 sm:bottom-10 sm:top-auto top-3 sm:h-[10px]   w-screen sm:px-[4px] md:px-[12px]  lg:px-[45px] px-[5vw] py-[2vh]  font-medium  flex items-end justify-between">
        
        <CustomLink
          key={2}
@@ -78,7 +79,7 @@ window.addEventListener("resize", () => {
         <CustomLink
          key={1}
          controls={controls}
-         className="  sm:-rotate-90 "
+         className="sm:left-4  sm:-rotate-90 "
          href="/testimonials"
          title="Testimonials"
        />

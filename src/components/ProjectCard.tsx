@@ -71,7 +71,7 @@ index
   return (
     <motion.div
     
-      className={`bg-gray-50   p-6 cursor-pointer  ${preview ? "bg-gray-300 " : 'sm:hover:bg-gray-200  '}  rounded-lg shadow-md`}
+      className={`bg-white   p-6 cursor-pointer  ${preview ? "!bg-gray-50 " : 'sm:hover:bg-gray-50  '}  rounded-lg shadow-md`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -79,7 +79,7 @@ index
     >
       <motion.div variants={cardVariants} initial="hidden" animate="visible">
         <div className="flex mb-4 items-center">
-          <div className="flex-shrink-0 hover:scale-105 transition mr-4">
+          <div className="flex-shrink-0 transition mr-4">
             <Image
               src={thumbnail}
               width={300}
