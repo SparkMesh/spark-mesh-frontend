@@ -44,9 +44,17 @@ const CustomLink = ({
 
 const NavBar = ({ }: Props) => {
   const controls = useAnimationControls();
-  const [width,setWidth] =useState( typeof window !== "undefined" ? window.innerWidth : 0)
+  const [width,setWidth] =useState(0)
 const ref = useRef<HTMLDivElement>(null)
 useEffect(() => {
+  if(window.innerWidth<440){
+    ref.current?.classList.add('!left-[32vw]')
+    
+  }
+  else{
+    ref.current?.classList.remove('!left-[32vw]')
+  }
+  
   setWidth(window.innerWidth);
     window.addEventListener("resize", () => {
      
@@ -66,11 +74,11 @@ useEffect(() => {
 }, []);
   useEffect(() => {
 if(width<440){
-  ref.current?.classList.add('left-[31vw]')
+  ref.current?.classList.add('!left-[32vw]')
   
 }
 else{
-  ref.current?.classList.remove('left-[31vw]')
+  ref.current?.classList.remove('!left-[32vw]')
 }
 
   }, [width]);
