@@ -153,7 +153,7 @@ const Articles = (props: Props) => {
      ref={ref}
       style={{boxShadow:'0px 0px 10px 0px #808080'}}
      
-      className="overflow-y-scroll  overflow-x-hidden h-[60%] px-2 rounded-lg pt-1.5 pb-4 sm:w-[57%] w-[70%]   flex flex-row justify-center items-start">
+      className="overflow-y-scroll  overflow-x-hidden h-[60%] px-2 rounded-lg pt-1.5 pb-4 sm:w-[57%] w-[70%]  xl:w-[720px] flex flex-row justify-center items-start">
         <LitIcon scrollYProgress={scrollYProgress} />
         <div
         className="grid sm:grid-cols-2 grid-cols-1  gap-2 "

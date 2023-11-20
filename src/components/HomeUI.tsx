@@ -18,13 +18,13 @@ const HomeUI = (props: Props) => {
           
           className=" flex justify-end items-center"
         >
-          <Image className=" lg:w-[20vw] sm:w-[25vw] w-[40vw] "  src={avatar} height={300} width={300} alt="avatar" />
+          <Image className=" lg:w-[300px] sm:w-[25vw] w-[40vw] "  src={avatar} height={300} width={300} alt="avatar" />
         </motion.div>
         <motion.div
           
-          className=" flex flex-col justify-end items-start w-[30vw]"
+          className=" flex flex-col justify-end items-start w-[30vw] lg:w-[300px]"
         >
-          <motion.h1 className={` sm:text-[2.5vw] text-[8vw]  font-bold `}>
+          <motion.h1 className={` sm:text-[2.5vw] text-[8vw] lg:text-4xl  font-bold `}>
             {text.split(" ").map((char, index) => {
               if (char == "SparkMesh") {
                 return (
