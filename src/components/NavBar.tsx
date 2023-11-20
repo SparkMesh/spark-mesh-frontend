@@ -66,11 +66,11 @@ useEffect(() => {
 }, []);
   useEffect(() => {
 if(width<440){
-  ref.current?.classList.add('left-[31.5vw]')
+  ref.current?.classList.add('left-[31vw]')
   
 }
 else{
-  ref.current?.classList.remove('left-[31.5vw]')
+  ref.current?.classList.remove('left-[31vw]')
 }
 
   }, [width]);
