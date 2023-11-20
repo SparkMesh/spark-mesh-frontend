@@ -123,7 +123,7 @@ const Projects = (props: Props) => {
             rotate: -90,
           }}
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-          className="text-2xl xl:left-[5px] lg:-left-[10px] md:-left-[50px]  sm:-left-[100px] -left-[160px] tracking-widest absolute  font-thin"
+          className="text-2xl xl:left-[5px] lg:-left-[10px] md:-left-[50px]  sm:-left-[100px] -left-[170px] tracking-widest absolute  font-thin"
         >
           Imagination Trumps Knowledge!
         </motion.div>
