@@ -11,36 +11,49 @@ type Props = {
 
 const projects = [
   {
-    name: "Project 1",
-    shortDescription: "Short description for Project 1",
+    name: "AI Image SaaS",
+    shortDescription: "AI FineTune gen SaaS - SDXL1.0",
     image: "/images/image1.jpg",
-    description: "This is the description for Project 1.",
-    liveLink:'https://www.sparkmesh.tech/',
+    description: "This SaaS is built with NextJS 14, RadixUI, NextUI, Zod, Zustand,  SupaBase, PosgreSQL, Cloudinary & Sanity-io.",
+    liveLink:'https://snapwiz.io/',
   
   },
   {
-    name: "Project 2",
-    shortDescription: "Short description for Project 2",
+    name: "Ecommerce SaaS",
+    shortDescription: "Single Click Deployed Ecommerce SaaS",
     image: "/images/image2.jpg",
-    description: "This is the description for Project 2.",liveLink:'https://www.sparkmesh.tech/',
+    description: "Deploy multiple ecommerce store from a single dashboard",liveLink:'https://ecommerce-saas-landing-page.vercel.app/',
   },
   {
-    name: "Project 3",
-    shortDescription: "Short description for Project 3",
+    name: "Food Delivery",
+    shortDescription: "Multi Vendor Food Delivery System",
     image: "/images/image3.jpg",
-    description: "This is the description for Project 3.",liveLink:'https://www.sparkmesh.tech/',
+    description: "Customer, Restaurant & Rider app on React Native and Dashboard with React - Vite",liveLink:'https://quickbhai.com/',
   },
   {
-    name: "Project 4",
-    shortDescription: "Short description for Project 4",
+    name: "Children Care",
+    shortDescription: "Children Care Management System - User App",
     image: "/images/image4.jpg",
-    description: "This is the description for Project 4.",liveLink:'https://www.sparkmesh.tech/',
+    description: "Develop User App on Children Care MS on top off React Native, AsyncStorage and Animated Api.",liveLink:'https://www.figma.com/proto/2eBPvkH12LWqx8AvoO1Php/Tadika?page-id=0%3A1&type=design&node-id=470-19461',
   },
   {
-    name: "Project 5",
+    name: "Image Editor AI",
     shortDescription: "Short description for Project 5",
     image: "/images/image5.jpg",
-    description: "This is the description for Project 5.",liveLink:'https://www.sparkmesh.tech/',
+    description: "Edit Images with AI filters and tools with Next.js, MongoDB and Cloudinary",liveLink:'https://shotify-io.vercel.app/',
+  },
+ 
+  {
+    name: "Agency Portfolio",
+    shortDescription: "Full-Stack Digital Agency Portfolio App",
+    image: "/images/image6.jpg",
+    description: "Full Stack Agency Portfolio App with Next.js 14 and Auth.",liveLink:'https://agency-portfolio-mu.vercel.app/',
+  },
+  {
+    name: "Bloodbank App",
+    shortDescription: "with Public APIs for landing page",
+    image: "/images/image7.jpg",
+    description: "A Blood bank app with landing page in Next.js and Management System with React, Ant Design and Express (MVC)",liveLink:'https://quickdonorbd.org/',
   },
 ];
 
